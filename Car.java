@@ -17,7 +17,7 @@ public class Car extends Thread {
         // Park for a random time and leave
         Park();
         try {
-            // Sleep for 10 seconds (10000 milliseconds)
+
             Thread.sleep(random.nextInt(50000));
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -41,9 +41,11 @@ public class Car extends Thread {
 
             if (waited) {
                 lot.EndWait();
+                lot.Park();
+            } else {
+                lot.Park();
             }
 
-            lot.Park();
             System.out.println("Car " + carNumber + " has parked" + "\n" + lot.toString());
 
         }

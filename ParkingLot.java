@@ -19,6 +19,7 @@ public class ParkingLot {
     public synchronized void Park() {
         Spaces -= 1;
         parkedCars += 1;
+
     }
 
     // Increment number of spaces wh en new car leaves
@@ -47,7 +48,7 @@ public class ParkingLot {
         return waitingCars;
     }
 
-    public String toString() {
+    public synchronized String toString() {
         String line = "Capacity: " + getParkedCars() + "/" + Limit;
         line = line + "\nWaiting: " + getWaiting();
         line = line + "\n------------------------------------------";
