@@ -1,10 +1,23 @@
+import java.util.Random;
+
 public class Simulator {
     public static void main(String[] args) {
         ParkingLot lot1 = new ParkingLot(6);
-        Car car1 = new Car("1", lot1);
-        Car car2 = new Car("2", lot1);
+        Random random = new Random();
+        int i = 0;
+        while (true) {
+            i += 1;
 
-        car1.start();
-        car2.start();
+            // wait before creating new car
+            try {
+                // Sleep for 10 seconds (10000 milliseconds)
+                Thread.sleep(random.nextInt(7000));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            Car car1 = new Car(i, lot1);
+            car1.start();
+        }
     }
 }
